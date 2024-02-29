@@ -9,6 +9,10 @@
   },
   "author": "",
   "license": "ISC",
+  "bin": {
+    "menu-game" : "bin/menu-game.js",
+    "menu-progression": "bin/menu-progression.js"
+  },
   "dependencies": {
     "readline-sync": "^1.4.10"
   },
