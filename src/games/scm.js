@@ -1,28 +1,28 @@
 import { playgame, getRandomNumber } from '../index.js';
 
-function scmOfThreeNumbers(a, b, c) {
-  // Находим НОК для первых двух чисел
-  const lcmOfAB = scm(a, b);
-  // Затем находим НОК для результата и третьего числа
-  return scm(lcmOfAB, c);
-}
-
-// Функция для нахождения НОК двух чисел
-function scm(a, b) {
-  // Находим НОД для двух чисел
-  const gcdResult = gcd(a, b);
-  // НОК равен произведению чисел, деленному на НОД
-  return (a * b) / gcdResult;
-}
-
 // Функция для нахождения НОД двух чисел
-function gcd(a, b) {
+function getGcd(a, b) {
   while (b !== 0) {
     const temp = b;
     b = a % b;
     a = temp;
   }
   return a;
+}
+
+// Функция для нахождения НОК двух чисел
+function getScm(a, b) {
+  // Находим НОД для двух чисел
+  const gcdResult = getGcd(a, b);
+  // НОК равен произведению чисел, деленному на НОД
+  return (a * b) / gcdResult;
+}
+
+function scmOfThreeNumbers(a, b, c) {
+  // Находим НОК для первых двух чисел
+  const lcmOfAB = getScm(a, b);
+  // Затем находим НОК для результата и третьего числа
+  return getScm(lcmOfAB, c);
 }
 
 function generateQuestion() {
